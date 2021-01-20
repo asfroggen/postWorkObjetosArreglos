@@ -1,3 +1,4 @@
+
 function deepEqual(a, b) {
     if (typeof a === 'object' && typeof b === 'object') { //las dos variables son objetos?
         aKeys = Object.keys(a).sort(); //ordenar propiedades de objeto a y asignar a aKeys
@@ -33,4 +34,27 @@ console.log('Test 3:', deepEqual(john, john)) // true
 console.log('Test 4:', deepEqual(john, { lastName: 'Doe', firstName: 'John' })) // true
 console.log('Test 5:', deepEqual(john, { firstName: 'John' })) // false
 
-console.log('Test 6:', deepEqual(john, { lastName: 'Doe', firstName: 'Alex' })) // false
+
+
+
+
+
+
+function chunk(list,step){
+    if(step<=list.length){
+        const result = []
+        let temp = [];
+        for(let i=0;i<list.length;i=i+step){
+            for(j = i; j<step+i;j++){
+                if(j<list.length){
+                    temp.push(list[j]);
+                }
+            }
+            result.push(temp);
+            temp = [];
+        }
+        return result;
+    }
+    return list;
+}
+
