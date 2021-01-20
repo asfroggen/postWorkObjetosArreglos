@@ -66,3 +66,62 @@ var data = [1, 2, 3, 4, 5, 6, 7, 8]
 console.log('Test 1:', chunk(data, 1)) // [[1], [2], [3], [4], [5], [6], [7], [8]]
 console.log('Test 2:', chunk(data, 2)) // [[1, 2], [3, 4], [5, 6], [7, 8]]
 console.log('Test 3:', chunk(data, 3)) // [[1, 2, 3], [4, 5, 6], [7, 8]]
+
+
+function uniqueChars(cadena) {
+    var cadenaAuxiliar = cadena;
+    var unicos = "";
+    var arrayCadena=[];
+    for (var i = 0; i < cadenaAuxiliar.length; i++) {
+        if (unicos.indexOf(cadenaAuxiliar.charAt(i)) == -1) {
+            unicos += cadenaAuxiliar[i];
+        }
+    }
+
+    for (var i = 0; i < unicos.length; i++) {
+        arrayCadena[i]=unicos[i];
+    }
+
+    return arrayCadena;
+}
+
+function arrayToObject(key,value) {
+    var obj = {};
+  
+    for(var i = 0; i < key.length; i++){
+        obj[key[i]] = value[i];
+    }
+  
+    return obj;
+  }
+
+
+
+function frecuencia(cadena) {
+    var unicos = uniqueChars(cadena).sort();
+    var contador = 0;
+    var lista = [];
+    var conteo = [];
+
+    for (var i = 0; i < unicos.length; i++) {
+        lista.push(unicos[i]);
+        for (var j = 0; j < cadena.length; j++) {
+            if (unicos[i] == cadena[j]) {
+                contador++;
+            }
+        }
+        conteo.push(contador);
+        contador = 0;
+    }
+
+
+    var resultado=arrayToObject(lista,conteo);
+    console.log('Test :', cadena);
+    console.log(resultado);
+
+}
+
+frecuencia('ccccbbbaaa'); // {a: 3, b: 3, c: 3}
+frecuencia('www.bedu.org'); // {.: 2, b: 1, d: 1, e: 1, g: 1, o: 1, r: 1, u: 1, w: 3}
+frecuencia('john.doe@domain.com'); // {.: 2, @: 1, a: 1, c: 1, d: 2, e: 1, h: 1, i: 1, j: 1, m: 2, n: 2, o: 4}
+
