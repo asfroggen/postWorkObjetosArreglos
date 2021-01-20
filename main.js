@@ -1,3 +1,5 @@
+//Ejercicio 1
+console.log("Ejercicio 1");
 
 function deepEqual(a, b) {
     if (typeof a === 'object' && typeof b === 'object') { //las dos variables son objetos?
@@ -38,15 +40,16 @@ console.log('Test 5:', deepEqual(john, { firstName: 'John' })) // false
 
 
 
+//Ejercicio 2
+console.log("Ejercicio 2");
 
-
-function chunk(list,step){
-    if(step<=list.length){
+function chunk(list, step) {
+    if (step <= list.length) {
         const result = []
         let temp = [];
-        for(let i=0;i<list.length;i=i+step){
-            for(j = i; j<step+i;j++){
-                if(j<list.length){
+        for (let i = 0; i < list.length; i = i + step) {
+            for (j = i; j < step + i; j++) {
+                if (j < list.length) {
                     temp.push(list[j]);
                 }
             }
@@ -58,3 +61,8 @@ function chunk(list,step){
     return list;
 }
 
+var data = [1, 2, 3, 4, 5, 6, 7, 8]
+
+console.log('Test 1:', chunk(data, 1)) // [[1], [2], [3], [4], [5], [6], [7], [8]]
+console.log('Test 2:', chunk(data, 2)) // [[1, 2], [3, 4], [5, 6], [7, 8]]
+console.log('Test 3:', chunk(data, 3)) // [[1, 2, 3], [4, 5, 6], [7, 8]]
